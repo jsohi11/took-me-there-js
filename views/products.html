@@ -1,3 +1,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" src="/js/products.js">
+<script type="text/javascript">
+
+function getProducts (event){
+      $.get("/api/products", handleResults)
+    }
+
+    function handleResults(results) {
+      results["products"].forEach(displayProducts);
+    }
+
+    function displayProducts(product) {
+    	var productList = document.querySelector("#list-products");
+    	var newProduct = document.createElement("li");
+    	newProduct.textContent = product.display_name;
+    	productList.appendChild(newProduct);
+    }
+
+
+getProducts()
+
 </script>
+
+<div>
+<ul id="list-products">
+<li>Test</li>
+
+</ul>
+
+</div>

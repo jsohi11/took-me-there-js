@@ -42,8 +42,16 @@ app.get('/products', function (req, res) {
   res.render('products.html');
 });
 
-app.get('/signed-in', function (req, res) {
-  res.render('signed-in.html');
+app.get('/about', function (req, res) {
+  res.render('about.html');
+});
+
+app.get('/my-trips', function (req, res) {
+  res.render('my-trips.html');
+});
+
+app.get('/test', function (req, res) {
+  res.render('test_page.html');
 });
 
 
@@ -63,7 +71,7 @@ app.get('/oauth/callback', function (req, res) {
   uber.authorization({ authorization_code: code }, 
     function (err, access_token) {
       req.session.uberToken = access_token
-      res.redirect('/signed-in');
+      res.redirect('/test_page');
     });
 });
 

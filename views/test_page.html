@@ -1,0 +1,32 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+function getTrips (event){
+      $.get("/api/me", handleResults)
+    }
+
+    function handleResults(results) {
+      results.forEach(displayTrips);
+    }
+
+    function displayTrips(trip) {
+    	var tripList = document.querySelector("#list-trips");
+    	var newTrip = document.createElement("li");
+    	newTrip.textContent = trip.start_city.display_name;
+    	tripList.appendChild(newTrip);
+    }
+
+
+getTrips()
+
+</script>
+
+<h1>Here's the test page</h1>
+
+<div>
+<ul id="list-trips">
+</ul>
+
+</div>
+
+

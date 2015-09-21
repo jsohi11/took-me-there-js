@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^1.4.2",
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
-    "express-session": "^1.11.3"
+    "express-session": "^1.11.3",
+    "node-uber": "0.0.6"
   }
 }

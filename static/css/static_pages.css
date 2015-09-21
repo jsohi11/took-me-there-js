@@ -1,0 +1,42 @@
+body {
+    overflow:hidden;
+    background-image: url(/images/world_dot_map.png);
+    height: 800px; 
+    margin-top: -20px; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    overflow-y: hidden; 
+    overflow-x: hidden;
+}
+
+.valign {
+    padding-top: 235px;
+}
+
+.navbar-inverse {
+	background-color: #09091A;
+	border-color: #09091A;
+}
+
+
+/*// Make containers difference sizes*/
+
+.col-md-7{
+  position: relative;
+  height: 800px;
+  padding-right: 0px;
+  padding-left: 15px;
+  padding-top: 20px;
+  background-image: url(white_grid_square.gif);
+  background-repeat: repeat;
+}
+
+.col-md-5{
+  position: relative;
+  height: 800px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  background-image: url(handmadepaper_@2X.png);
+  background-repeat: repeat;
+}
