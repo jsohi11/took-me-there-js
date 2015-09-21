@@ -1,7 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 
-function getTrips (event){
+	var tripArray = [];
+
+	function getTrips (event){
       $.get("/api/me", handleResults)
     }
 
@@ -10,10 +12,23 @@ function getTrips (event){
     }
 
     function displayTrips(trip) {
-    	var tripList = document.querySelector("#list-trips");
-    	var newTrip = document.createElement("li");
-    	newTrip.textContent = trip.start_city.display_name;
-    	tripList.appendChild(newTrip);
+    	tripArray.push(trip.start_city.display_name);
+
+    	var uniqueArray = tripArray.filter(function(elem, pos) {
+    		return tripArray.indexOf(elem) == pos;
+  			}); 
+
+    	console.log(tripArray)
+    	console.log(uniqueArray)
+    }
+
+    function printTrips(trip){
+    	for (i = 0; i < uniqueArray.length; i++) { 
+    		var tripList = document.querySelector("#list-trips");
+    		var newTrip = document.createElement("li");
+    		newTrip.textContent = uniqueArray[i];
+    		tripList.appendChild(newTrip);
+		}
     }
 
 
@@ -24,8 +39,12 @@ getTrips()
 <h1>Here's the test page</h1>
 
 <div>
+<h2>Not de-duped</h2>
 <ul id="list-trips">
 </ul>
+
+<h2>De-duped</h2>
+
 
 </div>
 
