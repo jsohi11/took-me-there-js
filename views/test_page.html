@@ -2,6 +2,19 @@
 <script type="text/javascript">
 
 	var tripArray = [];
+	var uniqueArray = [];
+	var mapCities = [
+	  {city: "San Francisco", country: "United States"},
+	  {city: "Los Angeles", country: "United States"},
+	  {city: "Istanbul", country: "Turkey"},
+	  {city: "Paris", country: "France"},
+	  {city: "Madison", country: "United States"},
+	  {city: "Athens, GR", country: "Greece"},
+	  {city: "Portland", country: "United States"},
+	  {city: "Houston", country: "United States"},
+	  {city: "Lyon", country: "United States"},
+	  {city: "New Delhi", country: "India"},
+	]
 
 	function getTrips (event){
       $.get("/api/me", handleResults)
@@ -9,12 +22,13 @@
 
     function handleResults(results) {
       results.forEach(displayTrips);
+      printTrips();
     }
 
     function displayTrips(trip) {
     	tripArray.push(trip.start_city.display_name);
 
-    	var uniqueArray = tripArray.filter(function(elem, pos) {
+    	uniqueArray = tripArray.filter(function(elem, pos) {
     		return tripArray.indexOf(elem) == pos;
   			}); 
 
@@ -31,19 +45,26 @@
 		}
     }
 
+    function displayCountry(city){
+    	for (i = 0; i < mapCities.length; i++) { 
 
-getTrips()
+    		var findCity = mapCities.indexOf(city);
+    		console.log(findCity)
+		}
+    }   
+
+
+getTrips();
+
 
 </script>
 
 <h1>Here's the test page</h1>
 
 <div>
-<h2>Not de-duped</h2>
+<h2>De-duped Cities</h2>
 <ul id="list-trips">
 </ul>
-
-<h2>De-duped</h2>
 
 
 </div>
