@@ -71,7 +71,7 @@ app.get('/oauth/callback', function (req, res) {
   uber.authorization({ authorization_code: code }, 
     function (err, access_token) {
       req.session.uberToken = access_token
-      res.redirect('/test');
+      res.redirect('/my-trips');
     });
 });
 

@@ -1,13 +1,200 @@
-
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+// Arrays and Dictionaries
+
+  var tripArray = [];
+  var uniqueCityArray = [];
+  var countryUrlsArray = [];
+  var uniqueCountryUrlsArray = [];
+  var countryNamesArray = [];
+  var uniqueCountryNamesArray = [];
+  var mapCities = [
+    {city: "Amsterdam", country: {name: "Netherlands", url: "/images/stamps/netherlands.png"}},
+    {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
+    {city: "Austin", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Beijing", country: {name: "China", url: "/images/stamps/china.png"}},
+    {city: "Chicago", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ho Chi Minh City", country: {name: "Vietnam", url: "/images/stamps/vietnam.png"}},
+    {city: "Houston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Istanbul", country: {name: "Turkey", url: "/images/stamps/turkey.png"}},
+    {city: "London", country: {name: "United Kingdom", url: "/images/stamps/united_kingdom.png"}},
+    {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Louisville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lyon", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Madison", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Manila", country: {name: "Philippines", url: "/images/stamps/philippines.png"}},
+    {city: "Miami", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "New Delhi", country: {name: "India", url: "/images/stamps/india.png"}},
+    {city: "New Jersey", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "New York City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Palm Springs", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Paris", country: {name: "France", url: "/images/stamps/france.png"}},
+    {city: "Phoenix", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Pittsburgh", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Portland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Sacramento", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "San Diego", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "San Francisco", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Seattle", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tel Aviv", country: {name: "Israel", url: "/images/stamps/israel.png"}},
+    {city: "Washington D.C.", country: {name: "United States", url: "/images/stamps/united_states.png"}}
+  ]
+
+// API FUNCTIONS
+
+  function getTrips (event){
+      $.get("/api/me", handleResults)
+    }
+
+    function handleResults(results) {
+      results.forEach(displayTrips);
+      // printTrips();
+      uniqueCityArray.forEach(findCountryUrls);
+      uniqueCityArray.forEach(findCountryNames);
+      uniqueCountryNamesArray.forEach(addMapData);
+      drawRegionsMap();
+      uniqueCountryUrlsArray.forEach(displayStamp);
+    }
+
+// CITY FUNCTIONS
+
+    function displayTrips(trip) {
+      tripArray.push(trip.start_city.display_name);
+
+      uniqueCityArray = tripArray.filter(function(elem, pos) {
+        return tripArray.indexOf(elem) == pos;
+        }); 
+
+      console.log(tripArray)
+      console.log(uniqueCityArray)
+    }
+
+    function printTrips(trip){
+      for (i = 0; i < uniqueCityArray.length; i++) { 
+        var tripList = document.querySelector("#list-trips");
+        var newTrip = document.createElement("li");
+        newTrip.textContent = uniqueCityArray[i];
+        tripList.appendChild(newTrip);
+    }
+    }
+
+// COUNTRY FUNCTIONS
+
+// function findIndexByKeyValue: finds "key" key inside "ob" object that equals "value" value
+// example: findIndexByKeyValue(students, 'name', "Jim");
+// object: students = [
+//    {name: 'John', age: 100, profession: 'Programmer'},
+//    {name: 'Jim', age: 50, profession: 'Carpenter'}
+// ];
+// would find the index of "Jim" and return 1
+ 
+  function findIndexByKeyValue(obj, key, value){
+      for (var i = 0; i < obj.length; i++) {
+          if (obj[i][key] == value) {
+              return i;
+          }
+      }
+      return null;
+  }
+
+  function findCountryUrls(city) {
+
+      var position = findIndexByKeyValue(mapCities, 'city', city);
+
+      countryUrlsArray.push(mapCities[position].country.url);
+
+      uniqueCountryUrlsArray = countryUrlsArray.filter(function(elem, pos) {
+        return countryUrlsArray.indexOf(elem) == pos;
+        }); 
+
+      console.log(countryUrlsArray)
+      console.log(uniqueCountryUrlsArray)
+  } 
+
+  function findCountryNames(city) {
+
+      var position = findIndexByKeyValue(mapCities, 'city', city);
+
+      countryNamesArray.push(mapCities[position].country.name);
+
+      uniqueCountryNamesArray = countryNamesArray.filter(function(elem, pos) {
+        return countryNamesArray.indexOf(elem) == pos;
+        }); 
+
+      console.log(countryNamesArray)
+      console.log(uniqueCountryNamesArray)
+  } 
+
+  function displayStamp(stampUrl){
+        var countryList = document.querySelector("#list-countries");
+        var newCountry = document.createElement("img");
+        newCountry.setAttribute("src", stampUrl);
+        newCountry.setAttribute("height", 150);
+        newCountry.setAttribute("width", 150);
+      // toggle off class to make the stamps bold for visited
+        countryList.appendChild(newCountry);
+  }    
+
+// Google Maps
+
+var mapData = [];
+mapData.push(['United States']);
+
+function addMapData(country){
+  mapData.push([country]);
+}
+
+google.load("visualization", "1", {packages:["geochart"]});
+      // google.setOnLoadCallback(drawRegionsMap);
+      function drawRegionsMap() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string','Country');
+        data.addRows(mapData);
+
+        var options = {
+          // colorAxis: {colors: ['#1fbad6', '1fbad6', '#1fbad6']},
+          backgroundColor: '#09091A',
+          datalessRegionColor: '#2E2E2E',
+          defaultColor: '#1fbad6',
+          legend: 'none',
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('map-canvas'));
+        chart.draw(data, options);
+
+      };
+
+// Call functions
+
+getTrips();
+
+
+</script>
 </head>
-<body>
+<!-- <div id="map-canvas"> -->
 
-<!-- Yield -->
 
-<h1>Here is the trips page!</h1>
+<div class="col-md-7"><div id="map-canvas"></div>
+</div>
+
+<div>
+<!-- <ul id="list-trips">
+</ul> -->
+<div class="col-md-5">
+<div class="panel panel-default panel-transparent">
+<div class="panel-body">
+<ul id="list-countries">
+</ul>
+</div>
+</div>
+
+</div>
+
 
 <!-- Bottom Nav -->
 
@@ -28,5 +215,4 @@
   </nav>
 </div>
 
-</body>
-</html>
+
