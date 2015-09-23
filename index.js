@@ -97,7 +97,7 @@ app.get('/api/me', function (req, res) {
 
     function requestPage (page, callback) {
       console.log(page);
-      uber.user.activity({access_token: req.session.uberToken, offset: (i * 50)}, callback);
+      uber.user.activity({access_token: req.session.uberToken, offset: (page * 50)}, callback);
     }
 
     for (i = 1; i < numPages; i++) { 

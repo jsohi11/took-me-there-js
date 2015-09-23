@@ -1,3 +1,6 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -6,16 +9,32 @@
   var countryArray = [];
   var uniqueCountryArray = [];
 	var mapCities = [
+    {city: "Amsterdam", country: {name: "Netherlands", url: "/images/stamps/netherlands.png"}},
     {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
+    {city: "Austin", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Chicago", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ho Chi Minh City", country: {name: "Vietnam", url: "/images/stamps/vietnam.png"}},
     {city: "Houston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Istanbul", country: {name: "Turkey", url: "/images/stamps/turkey.png"}},
+    {city: "London", country: {name: "United Kingdom", url: "/images/stamps/united_kingdom.png"}},
     {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lyon", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Madison", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Manila", country: {name: "Philippines", url: "/images/stamps/philippines.png"}},
+    {city: "Miami", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New Delhi", country: {name: "India", url: "/images/stamps/india.png"}},
+    {city: "New York City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Palm Springs", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Paris", country: {name: "France", url: "/images/stamps/france.png"}},
+    {city: "Phoenix", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Pittsburgh", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Portland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
-	  {city: "San Francisco", country: {name: "United States", url: "/images/stamps/united_states.png"}}
+    {city: "Sacramento", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "San Diego", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+	  {city: "San Francisco", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Seattle", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tel Aviv", country: {name: "Israel", url: "/images/stamps/israel.png"}},
+    {city: "Washington D.C.", country: {name: "United States", url: "/images/stamps/united_states.png"}}
 	]
 
 	function getTrips (event){
@@ -93,19 +112,45 @@ getTrips();
 
 
 </script>
-
+</head>
+<div class="col-md-5">
 <h1>Here's the test page</h1>
-
+</div>
 <div>
 <h2>De-duped Cities</h2>
 <ul id="list-trips">
 </ul>
-
-<h2>Countries</h2>
+<div class="col-md-5">
+<div class="panel panel-default panel-transparent">
+  <div class="panel-heading">
+    <h3 class="panel-title" align="center">Uber #TookMeThere</h3>
+  </div>
+  <div class="panel-body">
 <ul id="list-countries">
 </ul>
+</div>
+</div>
+
+</div>
 
 
+<!-- Bottom Nav -->
+
+<div style="font-family: 'Open Sans', sans-serif; background-color: #09091A;">
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="about">About</a></li>
+          <li><a href="my-trips">Dashboard</a></li>
+        </ul>
+        </ul>
+        <ul class="nav navbar-nav navbar-right navbar-brand">
+          <img src="/images/UBER_API_Badges_1x_28px.png">
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 </div>
 
 
