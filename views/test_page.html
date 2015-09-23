@@ -2,12 +2,17 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
+
+// Arrays and Dictionaries
 
 	var tripArray = [];
 	var uniqueCityArray = [];
-  var countryArray = [];
-  var uniqueCountryArray = [];
+  var countryUrlsArray = [];
+  var uniqueCountryUrlsArray = [];
+  var countryNamesArray = [];
+  var uniqueCountryNamesArray = [];
 	var mapCities = [
     {city: "Amsterdam", country: {name: "Netherlands", url: "/images/stamps/netherlands.png"}},
     {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
@@ -37,16 +42,20 @@
     {city: "Washington D.C.", country: {name: "United States", url: "/images/stamps/united_states.png"}}
 	]
 
+// API FUNCTIONS
+
 	function getTrips (event){
       $.get("/api/me", handleResults)
     }
 
     function handleResults(results) {
       results.forEach(displayTrips);
-      printTrips();
-      uniqueCityArray.forEach(findCountries);
-      uniqueCountryArray.forEach(displayCountry);
+      // printTrips();
+      uniqueCityArray.forEach(findCountryUrls);
+      uniqueCountryUrlsArray.forEach(displayStamp);
     }
+
+// CITY FUNCTIONS
 
     function displayTrips(trip) {
     	tripArray.push(trip.start_city.display_name);
@@ -68,6 +77,8 @@
 		}
     }
 
+// COUNTRY FUNCTIONS
+
 // function findIndexByKeyValue: finds "key" key inside "ob" object that equals "value" value
 // example: findIndexByKeyValue(students, 'name', "Jim");
 // object: students = [
@@ -75,7 +86,6 @@
 //    {name: 'Jim', age: 50, profession: 'Carpenter'}
 // ];
 // would find the index of "Jim" and return 1
-
  
 	function findIndexByKeyValue(obj, key, value){
 	    for (var i = 0; i < obj.length; i++) {
@@ -86,21 +96,21 @@
 	    return null;
 	}
 
-  function findCountries(city) {
+  function findCountryUrls(city) {
 
       var position = findIndexByKeyValue(mapCities, 'city', city);
 
-      countryArray.push(mapCities[position].country.url);
+      countryUrlsArray.push(mapCities[position].country.url);
 
-      uniqueCountryArray = countryArray.filter(function(elem, pos) {
-        return countryArray.indexOf(elem) == pos;
+      uniqueCountryUrlsArray = countryUrlsArray.filter(function(elem, pos) {
+        return countryUrlsArray.indexOf(elem) == pos;
         }); 
 
-      console.log(countryArray)
-      console.log(uniqueCountryArray)
+      console.log(countryUrlsArray)
+      console.log(uniqueCountryUrlsArray)
   } 
 
-  function displayCountry(stampUrl){
+  function displayStamp(stampUrl){
         var countryList = document.querySelector("#list-countries");
         var newCountry = document.createElement("img");
         newCountry.setAttribute("src", stampUrl);
@@ -108,18 +118,62 @@
         countryList.appendChild(newCountry);
   }    
 
+// Google Maps
+
+google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country'],
+          ["United States"],
+          ['France'],
+          ['South Africa'],
+          ['United Kingdom'],
+          ['India'],
+          ['Mexico'],
+          ['Australia'],
+          ['China'],
+        ]);
+        // var data = google.visualization.arrayToDataTable([
+        //   ['Country',   'Cities'],
+        //   ['United States', 'Madison, San Francisco, Los Angeles'],
+        //   ['France', 'Paris'],
+        //   ['South Africa', 'Cape Town'],
+        //   ['United Kingdom', 'London'],
+        //   ['India', 'Chandigardh'],
+        //   ['Mexico', 'Mexico City'],
+        //   ['Australia', 'Sydney'],
+        //   ['China', 'Beijing'],
+        // ]);
+
+        var options = {
+          // colorAxis: {colors: ['#1fbad6', '1fbad6', '#1fbad6']},
+          backgroundColor: '#09091A',
+          datalessRegionColor: '#2E2E2E',
+          defaultColor: '#1fbad6',
+          legend: 'none',
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('map-canvas'));
+        chart.draw(data, options);
+      };
+
+// Call functions
+
 getTrips();
 
 
 </script>
 </head>
-<div class="col-md-5">
-<h1>Here's the test page</h1>
+<!-- <div id="map-canvas"> -->
+
+
+<div class="col-md-7"><div id="map-canvas"></div>
 </div>
+
 <div>
-<h2>De-duped Cities</h2>
-<ul id="list-trips">
-</ul>
+<!-- <ul id="list-trips">
+</ul> -->
 <div class="col-md-5">
 <div class="panel panel-default panel-transparent">
   <div class="panel-heading">
