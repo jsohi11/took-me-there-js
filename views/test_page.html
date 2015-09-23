@@ -5,15 +5,15 @@
 	var uniqueArray = [];
 	var mapCities = [
     {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
-    {city: "Houston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Houston", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}},
     {city: "Istanbul", country: {name: "Turkey", url: "/images/stamps/turkey.png"}},
-    {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/united_states.png"}},
-    {city: "Lyon", country: {name: "United States", url: "/images/stamps/united_states.png"}},
-    {city: "Madison", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}},
+    {city: "Lyon", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}},
+    {city: "Madison", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}},
     {city: "New Delhi", country: {name: "India", url: "/images/stamps/india.png"}},
     {city: "Paris", country: {name: "France", url: "/images/stamps/france.png"}},
-    {city: "Portland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
-	  {city: "San Francisco", country: {name: "United States", url: "/images/stamps/united_states.png"}}
+    {city: "Portland", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}},
+	  {city: "San Francisco", country: {name: "United States", url: "/images/stamps/stamp_united_states.png"}}
 	]
 
 	function getTrips (event){
@@ -23,7 +23,7 @@
     function handleResults(results) {
       results.forEach(displayTrips);
       printTrips();
-      displayCountry();
+      uniqueArray.forEach(displayCountry);
     }
 
     function displayTrips(trip) {
@@ -64,21 +64,15 @@
 	    return null;
 	}
 
-    function displayCountry(city){
 
-    	var cityName = city;
-
-    	for (cityName in uniqueArray) { 
-
-    		var findCity = findIndexByKeyValue(mapCities, 'city', cityName);
-    		
-    		var countryList = document.querySelector("#list-countries");
-    		var newCountry = document.createElement("li");
-    		newCountry.textContent = findCity;
-    		countryList.appendChild(newCountry);
-
-		}
-    }   
+  function displayCountry(cityName){
+        var findCity = findIndexByKeyValue(mapCities, 'city', cityName);
+        var countryList = document.querySelector("#list-countries");
+        var newCountry = document.createElement("img");
+        newCountry.setAttribute("src", mapCities[findCity].country.url);
+      // toggle off class to make the stamps bold for visited
+        countryList.appendChild(newCountry);
+  }    
 
 getTrips();
 
