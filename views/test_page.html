@@ -17,17 +17,20 @@
     {city: "Amsterdam", country: {name: "Netherlands", url: "/images/stamps/netherlands.png"}},
     {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
     {city: "Austin", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Beijing", country: {name: "China", url: "/images/stamps/china.png"}},
     {city: "Chicago", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Ho Chi Minh City", country: {name: "Vietnam", url: "/images/stamps/vietnam.png"}},
     {city: "Houston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Istanbul", country: {name: "Turkey", url: "/images/stamps/turkey.png"}},
     {city: "London", country: {name: "United Kingdom", url: "/images/stamps/united_kingdom.png"}},
     {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Louisville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lyon", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Madison", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Manila", country: {name: "Philippines", url: "/images/stamps/philippines.png"}},
     {city: "Miami", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New Delhi", country: {name: "India", url: "/images/stamps/india.png"}},
+    {city: "New Jersey", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New York City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Palm Springs", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Paris", country: {name: "France", url: "/images/stamps/france.png"}},
@@ -53,6 +56,7 @@
       // printTrips();
       uniqueCityArray.forEach(findCountryUrls);
       uniqueCityArray.forEach(findCountryNames);
+      uniqueCountryNamesArray.forEach(addMapData);
       uniqueCountryUrlsArray.forEach(displayStamp);
     }
 
@@ -129,37 +133,27 @@
         var countryList = document.querySelector("#list-countries");
         var newCountry = document.createElement("img");
         newCountry.setAttribute("src", stampUrl);
+        newCountry.setAttribute("height", 150);
+        newCountry.setAttribute("width", 150);
       // toggle off class to make the stamps bold for visited
         countryList.appendChild(newCountry);
   }    
 
 // Google Maps
 
+var mapData = [];
+mapData.push(['United States']);
+
+function addMapData(country){
+  mapData.push([country]);
+}
+
 google.load("visualization", "1", {packages:["geochart"]});
       google.setOnLoadCallback(drawRegionsMap);
       function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable([
-          ['Country'],
-          ["United States"],
-          ['France'],
-          ['South Africa'],
-          ['United Kingdom'],
-          ['India'],
-          ['Mexico'],
-          ['Australia'],
-          ['China'],
-        ]);
-        // var data = google.visualization.arrayToDataTable([
-        //   ['Country',   'Cities'],
-        //   ['United States', 'Madison, San Francisco, Los Angeles'],
-        //   ['France', 'Paris'],
-        //   ['South Africa', 'Cape Town'],
-        //   ['United Kingdom', 'London'],
-        //   ['India', 'Chandigardh'],
-        //   ['Mexico', 'Mexico City'],
-        //   ['Australia', 'Sydney'],
-        //   ['China', 'Beijing'],
-        // ]);
+        var data = new google.visualization.DataTable();
+        data.addColumn('string','Country');
+        data.addRows(mapData);
 
         var options = {
           // colorAxis: {colors: ['#1fbad6', '1fbad6', '#1fbad6']},
@@ -171,6 +165,7 @@ google.load("visualization", "1", {packages:["geochart"]});
 
         var chart = new google.visualization.GeoChart(document.getElementById('map-canvas'));
         chart.draw(data, options);
+
       };
 
 // Call functions
@@ -191,10 +186,7 @@ getTrips();
 </ul> -->
 <div class="col-md-5">
 <div class="panel panel-default panel-transparent">
-  <div class="panel-heading">
-    <h3 class="panel-title" align="center">Uber #TookMeThere</h3>
-  </div>
-  <div class="panel-body">
+<div class="panel-body">
 <ul id="list-countries">
 </ul>
 </div>
