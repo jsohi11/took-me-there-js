@@ -52,6 +52,7 @@
       results.forEach(displayTrips);
       // printTrips();
       uniqueCityArray.forEach(findCountryUrls);
+      uniqueCityArray.forEach(findCountryNames);
       uniqueCountryUrlsArray.forEach(displayStamp);
     }
 
@@ -108,6 +109,20 @@
 
       console.log(countryUrlsArray)
       console.log(uniqueCountryUrlsArray)
+  } 
+
+  function findCountryNames(city) {
+
+      var position = findIndexByKeyValue(mapCities, 'city', city);
+
+      countryNamesArray.push(mapCities[position].country.name);
+
+      uniqueCountryNamesArray = countryNamesArray.filter(function(elem, pos) {
+        return countryNamesArray.indexOf(elem) == pos;
+        }); 
+
+      console.log(countryNamesArray)
+      console.log(uniqueCountryNamesArray)
   } 
 
   function displayStamp(stampUrl){
