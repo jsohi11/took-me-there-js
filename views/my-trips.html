@@ -25,36 +25,200 @@
   var uniqueCountryUrlsArray = [];
   var countryNamesArray = [];
   var uniqueCountryNamesArray = [];
+
+  var allCountriesUrls = [];
+  var allCountriesUrlsDeduped = [];
+  var notVisitedCountriesUrls = [];
+
   var mapCities = [
+    {city: "Abilene", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Akron", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Albuquerque", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Amarillo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ames", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Amsterdam", country: {name: "Netherlands", url: "/images/stamps/netherlands.png"}},
+    {city: "Ann Arbor", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Asheville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Athens", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Athens, GR", country: {name: "Greece", url: "/images/stamps/greece.png"}},
+    {city: "Atlanta", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Augusta", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Austin", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Bakersfield", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Baltimore", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Baton Rouge", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Beijing", country: {name: "China", url: "/images/stamps/china.png"}},
+    {city: "Bloomington-Normal", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Boise", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Boston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Bowling Green", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Burlington", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Cedar Rapids", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Central Atlantic Coast", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Champaign", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Charleston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Charlotte", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Charlottesville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Chattanooga", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Chicago", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Cincinnati", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Cleveland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Coeur d'Alene", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "College Station", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Columbia, MO", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Columbia, SC", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Columbus", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Connecticut", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Corpus Christi", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Dallas-Forth Worth", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Dayton", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Delaware", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Denver", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Des Moines", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Detroit", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Eastern Idaho", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Eastern North Carolina", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Edmonton", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "El Paso", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Erie", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fargo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fayetteville, Arkansas", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fayetteville, North Carolina", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Flagstaff", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Flint", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Florida Keys", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fort Myers-Naples", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fort Wayne", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Fresno", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Gainesville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Grand Rapids", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Greater Maine", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Greater Maryland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Green Bay", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Greenville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Guadalajara", country: {name: "Mexico", url: "/images/stamps/mexico.png"}},
+    {city: "Gulfport-Biloxi", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Halifax", country: {name: "Canada", url: "/images/stamps/canada.png"}},
+    {city: "Hamilton", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Hampton Roads", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Harrisburg", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Honolulu", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Ho Chi Minh City", country: {name: "Vietnam", url: "/images/stamps/vietnam.png"}},
     {city: "Houston", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Indianapolis", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Inland Empire", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Istanbul", country: {name: "Turkey", url: "/images/stamps/turkey.png"}},
+    {city: "Jackson", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Jacksonville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Kalamazoo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Kansas City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Killeen", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Kitchener-Waterloo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Knoxville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lafayette", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lancaster", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lansing", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "La Cruces", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Las Vegas", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lawrence", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lehigh Valley", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lexington", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lincoln", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Little Rock", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "London", country: {name: "United Kingdom", url: "/images/stamps/united_kingdom.png"}},
+    {city: "London, ONT", country: {name: "Canada", url: "/images/stamps/canada.png"}},
     {city: "Los Angeles", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Louisville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Lubbock", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lyon", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Madison", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Manhattan", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Manila", country: {name: "Philippines", url: "/images/stamps/philippines.png"}},
+    {city: "Maui", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Memphis", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Mexico City", country: {name: "Mexico", url: "/images/stamps/mexico.png"}},
     {city: "Miami", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Midland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Milwaukee", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Minneapolis", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Mobile", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Modesto", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Monterrey", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Montreal", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Myrtle Beach", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "NW Indiana", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Nashville", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New Delhi", country: {name: "India", url: "/images/stamps/india.png"}},
+    {city: "New Hampshire", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New Jersey", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "New Orleans", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "New York City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ocala", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Oklahoma City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Omaha", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Orange County", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Orlando", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ottawa", country: {name: "Canada", url: "/images/stamps/canada.png"}},
+    {city: "Outer Banks", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Oxford", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Palm Springs", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Paris", country: {name: "France", url: "/images/stamps/france.png"}},
+    {city: "Pensacola", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Philadelphia", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Phoenix", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Piedmont Triad", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Pittsburgh", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Portland", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Portland, ME", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Puebla", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Quad Cities", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Quebec City", country: {name: "Canada", url: "/images/stamps/canada.png"}},
+    {city: "Queretaro", country: {name: "Mexico", url: "/images/stamps/mexico.png"}},
+    {city: "Raleigh-Durham", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Reading", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Reno", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Rhode Island", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Richmond", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Roanoke-Blacksburg", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Rockford", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Sacramento", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Salt Lake City", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "San Antonio", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "San Diego", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "San Francisco", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "San Louis Obispo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Santa Barbara", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Santa Fe", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Sarasota", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Savannah-Hilton Head", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Seattle", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "South Bend", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Spokane", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Springfield", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "St. Louis", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "State College", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Stillwater", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tacoma", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tallahassee", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tampa", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Tel Aviv", country: {name: "Israel", url: "/images/stamps/israel.png"}},
-    {city: "Washington D.C.", country: {name: "United States", url: "/images/stamps/united_states.png"}}
+    {city: "Tijuana", country: {name: "Mexico", url: "/images/stamps/mexico.png"}},
+    {city: "Toledo", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Topeka", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Toronto", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tucson", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tulsa", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Tuscaloosa", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Vancouver", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Ventura", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Waco", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Washington D.C.", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Western Massachusettes", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Wichita", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Wilkes-Barre Scranton", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Wilmington", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Worcester", country: {name: "United States", url: "/images/stamps/united_states.png"}},
+    {city: "Yuma", country: {name: "United States", url: "/images/stamps/united_states.png"}}
   ]
 
 // API FUNCTIONS
@@ -71,6 +235,10 @@
       uniqueCountryNamesArray.forEach(addMapData);
       drawRegionsMap();
       uniqueCountryUrlsArray.forEach(displayStamp);
+      findAllUrls();
+      dedupeUrls();
+      findNotVisited();
+      notVisitedCountriesUrls.forEach(displayNotVisited);
     }
 
 // CITY FUNCTIONS
@@ -114,6 +282,8 @@
       return null;
   }
 
+// VISITED COUNTRIES
+
   function findCountryUrls(city) {
 
       var position = findIndexByKeyValue(mapCities, 'city', city);
@@ -151,6 +321,44 @@
       // toggle off class to make the stamps bold for visited
         countryList.appendChild(newCountry);
   }    
+
+// ALL COUNTRIES
+  
+  function findAllUrls() {
+
+    for (i = 0, len = mapCities.length; i < len; i++) { 
+      allCountriesUrls.push(mapCities[i].country.url);
+
+    }
+      console.log(allCountriesUrls)
+  } 
+
+  function dedupeUrls(){
+     allCountriesUrlsDeduped = allCountriesUrls.filter(function(elem, pos) {
+        return allCountriesUrls.indexOf(elem) == pos;
+        }); 
+      console.log(allCountriesUrlsDeduped)
+  }
+
+
+
+  function displayNotVisited(stampUrl){
+        var countryList = document.querySelector("#list-countries");
+        var newCountry = document.createElement("img");
+        newCountry.setAttribute("src", stampUrl);
+        newCountry.setAttribute("height", 150);
+        newCountry.setAttribute("width", 150);
+        newCountry.classList.add("opaque");
+        countryList.appendChild(newCountry);
+  } 
+
+  function findNotVisited (){
+    notVisitedCountriesUrls = allCountriesUrlsDeduped;
+    notVisitedCountriesUrls = notVisitedCountriesUrls.filter( function( el ) {
+      return uniqueCountryUrlsArray.indexOf( el ) < 0;
+    } );
+    console.log(notVisitedCountriesUrls)
+  }
 
 // Google Maps
 
@@ -194,9 +402,11 @@ getTrips();
 
 <div>
 <div class="col-md-5">
+<div class="panel panel-default panel-transparent">
 <div class="panel-body">
 <ul id="list-countries">
 </ul>
+</div>
 </div>
 
 </div>

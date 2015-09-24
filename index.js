@@ -54,12 +54,16 @@ app.get('/test', function (req, res) {
   res.render('test_page.html');
 });
 
-
 app.get('/sign-in', function (req, res) {
 
   var url = uber.getAuthorizeUrl(['history']);
   res.redirect(url);
   console.log(url);
+});
+
+app.get('/redirect', function(req, res) {
+    var url = share(req.query.service, req.query);
+    res.redirect(url);
 });
 
 // UBER OAUTH ROUTES
@@ -77,6 +81,12 @@ app.get('/oauth/callback', function (req, res) {
 
 app.get('/api/products', function (req, res) {
   uber.products.list({ latitude: 3.1357, longitude: 101.6880 }, function (err, apiResponse) {
+    res.send(apiResponse);
+  });
+});
+
+app.get('/api/profile', function (req, res) {
+  uber.user.profile({access_token: req.session.uberToken}, function (err, apiResponse) {
     res.send(apiResponse);
   });
 });
