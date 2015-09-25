@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <style type="text/css">
       
-  #map-canvas { height: 100%; width: 100%; margin: 0; padding: 0;}
+  #map-canvas { height: 450px; width: 100%; margin: 0; padding: 0;}
   .grid {
     overflow:hidden;
     background-image: url(images/white_grid.png);
@@ -316,8 +316,9 @@
         var countryList = document.querySelector("#list-countries");
         var newCountry = document.createElement("img");
         newCountry.setAttribute("src", stampUrl);
-        newCountry.setAttribute("height", 150);
-        newCountry.setAttribute("width", 150);
+        newCountry.setAttribute("height", 135);
+        newCountry.setAttribute("width", 135);
+        newCountry.classList.add("stamp");
       // toggle off class to make the stamps bold for visited
         countryList.appendChild(newCountry);
   }    
@@ -340,15 +341,13 @@
       console.log(allCountriesUrlsDeduped)
   }
 
-
-
   function displayNotVisited(stampUrl){
         var countryList = document.querySelector("#list-countries");
         var newCountry = document.createElement("img");
         newCountry.setAttribute("src", stampUrl);
-        newCountry.setAttribute("height", 150);
-        newCountry.setAttribute("width", 150);
-        newCountry.classList.add("opaque");
+        newCountry.setAttribute("height", 135);
+        newCountry.setAttribute("width", 135);
+        newCountry.classList.add("opaque", "stamp");
         countryList.appendChild(newCountry);
   } 
 
@@ -397,25 +396,10 @@ getTrips();
 </script>
 </head>
 
-<div class="col-md-7"><div id="map-canvas"></div>
-</div>
-
-<div>
-<div class="col-md-5">
-<div class="panel panel-default panel-transparent">
-<div class="panel-body">
-<ul id="list-countries">
-</ul>
-</div>
-</div>
-
-</div>
-
-
-<!-- Bottom Nav -->
+<!-- Top Nav -->
 
 <div style="font-family: 'Open Sans', sans-serif; background-color: #09091A;">
-  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+  <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -430,5 +414,22 @@ getTrips();
     </div><!-- /.container-fluid -->
   </nav>
 </div>
+
+<div class="row"><div id="map-canvas"></div>
+</div>
+
+<div>
+<div class="row">
+<div class="panel panel-default panel-transparent">
+<div class="panel-body">
+<ul id="list-countries">
+</ul>
+</div>
+</div>
+
+</div>
+
+
+
 
 
