@@ -59,7 +59,6 @@ h1, h2, h3, h4, p {
 .panel-transparent {
     background: none;
     border: none;
-    padding: 20px;
 }
 
 .panel-transparent .panel-heading{
@@ -69,8 +68,8 @@ h1, h2, h3, h4, p {
 }
 
 .panel-transparent .panel-body{
-    background: rgba(225, 225, 225, 0.2)!important;
-    max-height: 590px;
+/*    background: rgba(225, 225, 225, 0.2)!important;*/
+/*    max-height: 590px;*/
     min-height: 590px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -4737,8 +4736,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: rgba(9, 10, 20);
+  border-color: none;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
