@@ -3,15 +3,6 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <style type="text/css">
       
-  #map-canvas { height: 450px; width: 100%; margin: 0; padding: 0;}
-  .grid {
-    overflow:hidden;
-    background-image: url(images/white_grid.png);
-    background-repeat: repeat;
-    overflow-y: hidden; 
-    overflow-x: hidden;
-    background-size: auto; 
-  }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -414,7 +405,12 @@ getTrips();
   </nav>
 </div>
 
-<div class="row"><div id="map-canvas"></div>
+<div class="row">
+  <div id="map-canvas">
+  </div>
+  <div>
+      <img src="/images/avatar.jpg" class="avatar">
+    </div>
 </div>
 
 <div>

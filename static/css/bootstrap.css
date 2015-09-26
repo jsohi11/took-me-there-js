@@ -70,7 +70,7 @@ h1, h2, h3, h4, p {
 .panel-transparent .panel-body{
 /*    background: rgba(225, 225, 225, 0.2)!important;*/
 /*    max-height: 590px;*/
-    min-height: 590px;
+    min-height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -92,8 +92,41 @@ h1, h2, h3, h4, p {
 .stamp {
   padding-top: 15px;
   padding-right: 15px;
+  position: relative;
 }
 
+.avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  position: relative;
+  z-index: 1;
+  margin-left: 25px;
+}
+
+#map-canvas { 
+  height: 450px; 
+  width: 100%; 
+  margin: 0; 
+  padding: 0;
+  z-index: 0;
+  position: absolute;
+}
+
+#map-cover {
+/*  z-index: 100;*/
+  position: relative;
+    z-index: 1;
+}
+
+.grid {
+    overflow:hidden;
+    background-image: url(images/white_grid.png);
+    background-repeat: repeat;
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    background-size: auto; 
+  }
 
 
 
@@ -5594,10 +5627,12 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 0px;
+  margin-top: 320px;
   background-color: #fff;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  overflow-x: none;
 }
 .panel-body {
   padding: 15px;
