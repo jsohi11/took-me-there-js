@@ -5,7 +5,7 @@
 h1, h2, h3, h4, p { 
   font-family: 'Open Sans', sans-serif;
   color: white;
- }
+ }  
 
 /* // Styling for stats text*/
 
@@ -96,19 +96,21 @@ h1, h2, h3, h4, p {
 }
 
 .avatar {
-  height: 150px;
-  width: 150px;
+  height: 135px;
+  width: 135px;
   border-radius: 100px;
   position: relative;
   z-index: 1;
-  margin-left: 25px;
+  margin-left: 35px;
+  margin-top: 35px;
 }
 
 #map-canvas { 
   height: 450px; 
   width: 100%; 
   margin: 0; 
-  padding: 0;
+  padding-top: 30px;
+  padding-bottom: 10px;
   z-index: 0;
   position: absolute;
 }
@@ -4772,6 +4774,33 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: rgba(9, 10, 20);
   border-color: none;
 }
+
+.navbar-white {
+  color: #09091A;
+  border-color: none;
+  background-color: #fff;
+}
+
+.navbar-white .navbar-brand:hover,
+.navbar-white .navbar-brand:focus {
+  color: #09091A;
+  background-color: transparent;
+}
+.navbar-white .navbar-text {
+  color: #09091A;
+}
+.navbar-white .navbar-nav > li > a {
+  color: #09091A;
+}
+.navbar-white .navbar-nav > .active > a,
+.navbar-white .navbar-nav > .active > a:hover,
+.navbar-white .navbar-nav > .active > a:focus {
+  color: #09091A;;
+  background-color: none;
+}
+
+/*Inverse*/
+
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
 }
