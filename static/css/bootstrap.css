@@ -9,23 +9,37 @@ h1, h2, h3, h4, p {
 
 /* // Styling for stats text*/
 
- .stats { 
-  font-family: 'Open Sans', sans-serif;
-  font-size: 80px;
-  color: #09091A;
- }
+.stats {
+  height: 135px;
+  width: 135px;
+  border-radius: 100px;
+  background-color: #1fbad6;
+  position: relative;
+  z-index: 1;
+  margin-left: 45px;
+  margin-top: 35px;
+}
 
-  .stats-labels { 
+.stats h1 {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  vertical-align: center;
+  font-size: 30px;
+  padding-top: 50px;
+}
+
+.stats-labels { 
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   color: #09091A;
- }
+}
 
-   .stats-labels-small { 
+.stats-labels-small { 
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   color: #09091A;
- }
+}
 
 /* //Styling for buttons on the static homepage*/
 
@@ -101,7 +115,7 @@ h1, h2, h3, h4, p {
   border-radius: 100px;
   position: relative;
   z-index: 1;
-  margin-left: 35px;
+  margin-left: 45px;
   margin-top: 35px;
 }
 
