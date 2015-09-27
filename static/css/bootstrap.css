@@ -19,9 +19,31 @@ h1, h2, h3, h4, p {
   margin-left: 45px;
   margin-top: 35px;
 }
+.stats-countries { 
+  display: none;
+  height: 135px;
+  width: 135px;
+  border-radius: 100px;
+  background-color: #C0C0C8;
+  z-index: 1;
+  margin-left: 45px;
+  margin-top: 35px;
+}
+.stats:hover .stats-countries {
+display : inline-block;
+}
 
 .stats h1 {
   color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  vertical-align: center;
+  font-size: 30px;
+  padding-top: 50px;
+}
+
+.stats-countries h1 {
+  color: #09091A;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   vertical-align: center;

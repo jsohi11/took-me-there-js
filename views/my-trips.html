@@ -232,6 +232,7 @@ body {
       dedupeUrls();
       findNotVisited();
       notVisitedCountriesUrls.forEach(displayNotVisited);
+      showCountryStats();
     }
 
 // CITY FUNCTIONS
@@ -352,6 +353,14 @@ body {
     console.log(notVisitedCountriesUrls)
   }
 
+  function showCountryStats (){
+    var numCountries = uniqueCountryNamesArray.length;
+    var statsBubble = document.querySelector(".stats-countries");
+    var addCountryStats = document.createElement("h1");
+    addCountryStats.textContent = numCountries;
+    statsBubble.appendChild(addCountryStats); 
+  }
+
 // Google Maps
 
 var mapData = [];
@@ -396,9 +405,16 @@ getTrips();
   <div>
       <img src="/images/avatar.jpg" class="avatar">
   </div>
-  <div class="stats">
+<!--   <div class="stats">
     <h1>STATS</h1>
   </div>
+ -->
+<div class="stats">
+  <h1>STATS</h1>
+   <div class="stats-countries">
+  </div>
+</div>
+
 </div>
 
 <div class="row">
