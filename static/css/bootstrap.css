@@ -9,28 +9,46 @@ h1, h2, h3, h4, p {
 
 /* // Styling for stats text*/
 
+.avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  position: relative;
+  z-index: 1;
+  margin-left: 45px;
+  margin-top: 35px;
+}
+
+.show-stats {
+  display: block;
+  position: relative;
+}
+
 .stats {
-  height: 135px;
-  width: 135px;
+  height: 150px;
+  width: 150px;
   border-radius: 100px;
   background-color: #1fbad6;
   position: relative;
   z-index: 1;
   margin-left: 45px;
   margin-top: 35px;
+  display: inline-block;
 }
 .stats-countries { 
   display: none;
-  height: 135px;
-  width: 135px;
+  height: 150px;
+  width: 150px;
   border-radius: 100px;
-  background-color: #C0C0C8;
+  background-color: #fff;
   z-index: 1;
   margin-left: 45px;
   margin-top: 35px;
+  position: absolute;
+  top: 0;
 }
-.stats:hover .stats-countries {
-display : inline-block;
+.show-stats:hover .stats-countries {
+  display : inline-block;
 }
 
 .stats h1 {
@@ -39,7 +57,7 @@ display : inline-block;
   text-align: center;
   vertical-align: center;
   font-size: 30px;
-  padding-top: 50px;
+  padding-top: 35px;
 }
 
 .stats-countries h1 {
@@ -48,10 +66,21 @@ display : inline-block;
   text-align: center;
   vertical-align: center;
   font-size: 30px;
-  padding-top: 50px;
+  padding-top: 0px;
+  margin-top: 12px;
 }
 
-.stats-labels { 
+.stats-countries h2 {
+  color: #09091A !important;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 0px;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+/*.stats-labels { 
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   color: #09091A;
@@ -61,7 +90,7 @@ display : inline-block;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   color: #09091A;
-}
+}*/
 
 /* //Styling for buttons on the static homepage*/
 
@@ -125,20 +154,15 @@ display : inline-block;
     opacity: 1.0;
 }
 
+.personal-info {
+  position: absolute;
+  top: 0;
+}
+
 .stamp {
   padding-top: 15px;
   padding-right: 15px;
   position: relative;
-}
-
-.avatar {
-  height: 135px;
-  width: 135px;
-  border-radius: 100px;
-  position: relative;
-  z-index: 1;
-  margin-left: 45px;
-  margin-top: 35px;
 }
 
 #map-canvas { 
@@ -148,7 +172,6 @@ display : inline-block;
   padding-top: 30px;
   padding-bottom: 10px;
   z-index: 0;
-  position: absolute;
 }
 
 #map-cover {
@@ -5692,7 +5715,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 0px;
-  margin-top: 320px;
+  margin-top: 20px;
   background-color: #fff;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);

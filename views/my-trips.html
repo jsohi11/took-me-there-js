@@ -355,11 +355,32 @@ body {
 
   function showCountryStats (){
     var numCountries = uniqueCountryNamesArray.length;
+    var numCities = uniqueCityArray.length;
     var statsBubble = document.querySelector(".stats-countries");
     var addCountryStats = document.createElement("h1");
+    var addCountryLabel = document.createElement("h2");
+    var addCityStats = document.createElement("h1");
+    var addCityLabel = document.createElement("h2");
+
     addCountryStats.textContent = numCountries;
+    addCountryLabel.textContent = 'COUNTRIES';
+
+    addCityStats.textContent = numCities;
+    addCityLabel.textContent = 'CITIES';
+
     statsBubble.appendChild(addCountryStats); 
+    statsBubble.appendChild(addCountryLabel);
+    statsBubble.appendChild(addCityStats); 
+    statsBubble.appendChild(addCityLabel);
   }
+
+  //   function showCountryStats (){
+  //   var numCountries = uniqueCountryNamesArray.length;
+  //   var statsBubble = document.querySelector(".stats-countries");
+  //   var addCountryStats = document.createElement("h1");
+  //   addCountryStats.textContent = numCountries;
+  //   statsBubble.appendChild(addCountryStats); 
+  // }
 
 // Google Maps
 
@@ -402,18 +423,17 @@ getTrips();
 <div class="row">
   <div id="map-canvas">
   </div>
-  <div>
+  <div class="personal-info">
       <img src="/images/avatar.jpg" class="avatar">
+    <div class="show-stats">
+      <div class="stats">
+        <h1>STATS</h1>
+      </div>
+      <div class="stats-countries">
+      </div>
+    </div>
   </div>
-<!--   <div class="stats">
-    <h1>STATS</h1>
-  </div>
- -->
-<div class="stats">
-  <h1>STATS</h1>
-   <div class="stats-countries">
-  </div>
-</div>
+
 
 </div>
 
