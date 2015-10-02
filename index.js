@@ -24,7 +24,7 @@ app.use(express.static('static'));
 // Authentication
 var redirectUri = 'http://localhost:3000/oauth/callback';
 
-if (process.env === 'production'){
+if (process.env.NODE_ENV === 'production'){
   redirectUri = 'https://tookmethere.herokuapp.com/oauth/callback'
 }
 
