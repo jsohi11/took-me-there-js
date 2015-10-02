@@ -22,12 +22,17 @@ app.use(express.static('static'));
 
 // UBER OAUTH
 // Authentication
+var redirectUri = 'http://localhost:3000/oauth/callback';
+
+if (process.env === 'production'){
+  redirectUri = 'https://tookmethere.herokuapp.com/oauth/callback'
+}
 
 var uber = new Uber({
   client_id: 'l7HWUwY_GpFbmH72sLV7qc4ko8S7zmat',
   client_secret: '4PCmNZM7WY_CNnr4WOYPosBTz9EEgKyZYUXdSl2s',
   server_token: 'XkmGsCceVLJAyN6oY0hKh3jFvpLCbRxBBMDn36dS',
-  redirect_uri: 'http://localhost:3000/oauth/callback',
+  redirect_uri: redirectUri,
   name: 'took-me-there'
 });
 
