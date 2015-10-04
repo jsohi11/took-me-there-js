@@ -554,6 +554,35 @@ google.load("visualization", "1", {packages:["geochart"]});
 
       };
 
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});
+
 // Call functions
 
 getTrips();
@@ -562,20 +591,41 @@ getTrips();
 </script>
 </head>
 
-<body>
-<div class="row">
+
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <div class="personal-info">
+                      <img src="/images/avatar.jpg" class="avatar">
+                    <div class="show-stats">
+                      <div class="stats">
+                       <h1>STATS</h1>
+                      </div>
+                     <div class="stats-countries">
+                     </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+            </button>
+                <div class="row">
+
   <div id="map-canvas">
   </div>
-  <div class="personal-info">
-      <img src="/images/avatar.jpg" class="avatar">
-    <div class="show-stats">
-      <div class="stats">
-        <h1>STATS</h1>
-      </div>
-      <div class="stats-countries">
-      </div>
-    </div>
-  </div>
+
 
 
 </div>
@@ -586,27 +636,10 @@ getTrips();
 <ul id="list-countries">
 </ul>
 </div>
-</body>
-
-<!-- Bottom Nav -->
-<footer>
-<div style="font-family: 'Open Sans', sans-serif; background-color: #09091A;">
-  <nav class="navbar navbar-white navbar-static-bottom">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="about">About</a></li>
-          <li><a href="my-trips">Dashboard</a></li>
-        </ul>
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbar-brand">
-          <img src="/images/UBER_API_Badges_1x_28px.png">
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-</div>
-</footer> 
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
 
 </html>
 
