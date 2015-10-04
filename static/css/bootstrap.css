@@ -15,69 +15,40 @@ h1, h2, h3, h4, p {
   border-radius: 100px;
   position: relative;
   z-index: 1;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-top: 35px;
 }
 
-.show-stats {
-  display: block;
-  position: relative;
-}
 
-.stats {
-  height: 130px;
-  width: 130px;
-  border-radius: 100px;
-  background-color: #1fbad6;
-  position: relative;
-  z-index: 1;
-  margin-left: 5px;
-  margin-top: 35px;
+.stats { 
   display: inline-block;
-}
-.stats-countries { 
-  display: none;
   height: 130px;
   width: 130px;
-  border-radius: 100px;
-  background-color: #fff;
   z-index: 1;
   margin-left: 5px;
   margin-top: 35px;
-  position: absolute;
   top: 0;
-}
-.show-stats:hover .stats-countries {
-  display : inline-block;
 }
 
 .stats h1 {
-  color: #fff;
+  color: #C0C0C8;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   vertical-align: center;
-  font-size: 30px;
-  padding-top: 35px;
-}
-
-.stats-countries h1 {
-  color: #09091A;
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  vertical-align: center;
-  font-size: 30px;
+  font-size: 45px;
   padding-top: 0px;
-  margin-top: 12px;
+  margin-top: 25px;
 }
 
-.stats-countries h2 {
-  color: #09091A !important;
+.stats h2 {
+  color: #C0C0C8 !important;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   vertical-align: center;
   padding-top: 0px;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 /*.stats-labels { 
@@ -189,7 +160,7 @@ h1, h2, h3, h4, p {
     background-size: auto; 
   }
 
-/*SIDEBAR*/
+/*SIDE NAVBAR FROM http://bootsnipp.com/snippets/featured/fancy-sidebar-navigation*/
 
 body {
     position: relative;
@@ -5980,7 +5951,9 @@ button.list-group-item-danger.active:focus {
   overflow-x: none;
 }
 .panel-body {
-  padding: 35px;
+  padding-top: 35px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 .panel-heading {
   padding: 10px 15px;

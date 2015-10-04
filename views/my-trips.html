@@ -499,7 +499,7 @@ body {
   function showCountryStats (){
     var numCountries = uniqueCountryNamesArray.length;
     var numCities = uniqueCityArray.length;
-    var statsBubble = document.querySelector(".stats-countries");
+    var statsBubble = document.querySelector(".stats");
     var addCountryStats = document.createElement("h1");
     var addCountryLabel = document.createElement("h2");
     var addCityStats = document.createElement("h1");
@@ -554,9 +554,10 @@ google.load("visualization", "1", {packages:["geochart"]});
 
       };
 
+// Side navbar http://bootsnipp.com/snippets/featured/fancy-sidebar-navigation
+
 $(document).ready(function () {
   var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
      isClosed = false;
 
     trigger.click(function () {
@@ -566,12 +567,10 @@ $(document).ready(function () {
     function hamburger_cross() {
 
       if (isClosed == true) {          
-        overlay.hide();
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
       } else {   
-        overlay.show();
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;
@@ -601,13 +600,8 @@ getTrips();
                 <li class="sidebar-brand">
                     <div class="personal-info">
                       <img src="/images/avatar.jpg" class="avatar">
-                    <div class="show-stats">
-                      <div class="stats">
-                       <h1>STATS</h1>
-                      </div>
-                     <div class="stats-countries">
+                     <div class="stats">
                      </div>
-                    </div>
                   </div>
                 </li>
             </ul>
