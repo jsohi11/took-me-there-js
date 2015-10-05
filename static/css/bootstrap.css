@@ -10,8 +10,8 @@ h1, h2, h3, h4, p {
 /* // Styling for stats text*/
 
 .avatar {
-  height: 130px;
-  width: 130px;
+  height: 120px;
+  width: 120px;
   border-radius: 100px;
   position: relative;
   z-index: 1;
@@ -89,6 +89,36 @@ h1, h2, h3, h4, p {
   background-color: #1fbad6;
   border-color: #1fbad6;
 }
+
+/* //Styling for share button in the left-hand nav*/
+
+.btn-nav {
+  color: white;
+  background-color: #1fbad6;
+  border-color: #1fbad6;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+.btn-nav:focus,
+.btn-nav.focus {
+  color: white;
+  background-color: #1fbad6;
+  border-color: #1fbad6;
+}
+.btn-nav:hover {
+  color: white;
+  background-color: #1fbad6;
+  border-color: #1fbad6;
+}
+.btn-nav:active,
+.btn-nav.active,
+.open > .dropdown-toggle.btn-primary {
+  color: white;
+  background-color: #1fbad6;
+  border-color: #1fbad6;
+}
+
 
 /*// Adding the option for an opaque panel*/
 
