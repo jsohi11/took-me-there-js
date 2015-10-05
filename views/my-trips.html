@@ -194,7 +194,7 @@ body {
     {city: "Lehigh Valley", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lexington", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lille", country: {name: "France", url: "/images/stamps/france.png"}},
-    {city: "Lima", country: {name: "Peru", url: "/images/stamps/peru"}},
+    {city: "Lima", country: {name: "Peru", url: "/images/stamps/peru.png"}},
     {city: "Lincoln", country: {name: "United States", url: "/images/stamps/united_states.png"}},
     {city: "Lisbon", country: {name: "Portugal", url: "/images/stamps/portugal.png"}},
     {city: "Little Rock", country: {name: "United States", url: "/images/stamps/united_states.png"}},
@@ -499,11 +499,14 @@ body {
   function showCountryStats (){
     var numCountries = uniqueCountryNamesArray.length;
     var numCities = uniqueCityArray.length;
+    var numTrips = tripArray.length;
     var statsBubble = document.querySelector(".stats");
     var addCountryStats = document.createElement("h1");
     var addCountryLabel = document.createElement("h2");
     var addCityStats = document.createElement("h1");
     var addCityLabel = document.createElement("h2");
+    var addTripStats = document.createElement("h1");
+    var addTripLabel = document.createElement("h2");
 
     addCountryStats.textContent = numCountries;
     addCountryLabel.textContent = 'COUNTRIES';
@@ -511,10 +514,15 @@ body {
     addCityStats.textContent = numCities;
     addCityLabel.textContent = 'CITIES';
 
+    addTripStats.textContent = numTrips;
+    addTripLabel.textContent = 'TRIPS';
+
     statsBubble.appendChild(addCountryStats); 
     statsBubble.appendChild(addCountryLabel);
     statsBubble.appendChild(addCityStats); 
     statsBubble.appendChild(addCityLabel);
+    statsBubble.appendChild(addTripStats); 
+    statsBubble.appendChild(addTripLabel);
   }
 
   //   function showCountryStats (){
@@ -605,7 +613,6 @@ getTrips();
                   </div>
                 </li>
             </ul>
-            <button class="btn-nav">SHARE</button>
         </nav>
         <!-- /#sidebar-wrapper -->
 
