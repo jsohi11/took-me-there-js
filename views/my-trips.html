@@ -390,6 +390,16 @@ body {
 
       console.log(tripArray)
       console.log(uniqueCityArray)
+
+
+//testing city display on page
+
+    // var cityOutput = document.querySelector("#running-output");
+    // var addCityOutput = document.createElement("h2");
+
+    // addCityOutput.textContent = tripArray;
+
+
     }
 
     function printTrips(trip){
@@ -567,13 +577,13 @@ google.load("visualization", "1", {packages:["geochart"]});
 
 $(document).ready(function () {
   var trigger = $('.hamburger'),
-     isClosed = false;
+     isClosed = true;
 
     trigger.click(function () {
-      hamburger_cross();      
+      hamburgerCross();      
     });
 
-    function hamburger_cross() {
+    function hamburgerCross() {
 
       if (isClosed == true) {          
         trigger.removeClass('is-open');
@@ -595,14 +605,13 @@ $(document).ready(function () {
 
 getTrips();
 
-
 </script>
 </head>
 
 
 
 
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
@@ -629,7 +638,7 @@ getTrips();
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <button type="button" class="hamburger is-open" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
           <span class="hamb-middle"></span>
         <span class="hamb-bottom"></span>
@@ -649,6 +658,11 @@ getTrips();
 <ul id="list-countries">
 </ul>
 </div>
+
+
+<!-- <div class="row" id="running-output">
+
+</div> -->
             </div>
         </div>
         <!-- /#page-content-wrapper -->
