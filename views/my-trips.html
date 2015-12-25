@@ -10,6 +10,7 @@ body {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/social.js"></script>
+<script src="/js/pace.js"></script>
 <script type="text/javascript">
 
 // Arrays and Dictionaries
@@ -369,6 +370,7 @@ body {
       // printTrips();
       uniqueCityArray.forEach(findCountryUrls);
       uniqueCityArray.forEach(findCountryNames);
+      uniqueCityArray.forEach(displayCities);
       uniqueCountryNamesArray.forEach(addMapData);
       drawRegionsMap();
       uniqueCountryUrlsArray.forEach(displayStamp);
@@ -469,7 +471,16 @@ body {
         newCountry.classList.add("stamp");
       // toggle off class to make the stamps bold for visited
         countryList.appendChild(newCountry);
-  }    
+  } 
+
+
+  function displayCities(city){
+        var cityList = document.querySelector("#list-cities");
+        var newCity = document.createElement("li");
+        newCity.classList.add("board");
+        newCity.textContent = city;
+        cityList.appendChild(newCity);
+  }      
 
 // ALL COUNTRIES
   
@@ -607,10 +618,9 @@ getTrips();
 
 </script>
 </head>
-
-
-
-
+<div class="cover">
+    TEST
+</div>
     <div id="wrapper" class="toggled">
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
@@ -645,8 +655,20 @@ getTrips();
             </button>
                 <div class="row">
 
-  <div id="map-canvas">
-  </div>
+
+<div class="row board-background" id="running-output">
+<ul>
+    <li class="board-single">
+    YOUR UBER IS ARRIVING NOW
+    </li>
+</ul>
+<ul id="list-cities">
+</ul>
+</div>
+
+
+<div id="map-canvas">
+</div>
 
 
 
@@ -660,9 +682,6 @@ getTrips();
 </div>
 
 
-<!-- <div class="row" id="running-output">
-
-</div> -->
             </div>
         </div>
         <!-- /#page-content-wrapper -->
