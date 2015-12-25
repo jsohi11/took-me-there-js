@@ -166,6 +166,17 @@ h1, h2, h3, h4, p {
   position: relative;
 }
 
+.footer {
+  height: 35px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  padding-bottom: 5px;
+  text-align: center;
+  color: #C0C0C8;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
 #map-canvas { 
   height: 450px; 
   width: 100%; 
@@ -689,8 +700,7 @@ html { height: 100%;}
 .board-wrapper {
   background: rgba(50, 50, 60, 1);
   margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 110px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
@@ -703,6 +713,22 @@ html { height: 100%;}
 
 .board-wrapper ul, ol {
   padding-left: 20px;
+}
+
+
+.board-wrapper-closed {
+  background: rgba(50, 50, 60, 1);
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  width: 75%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
 }
 
 
@@ -6336,7 +6362,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 0px;
-  margin-top: 20px;
+  margin-top: 50px;
   background-color: #fff;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -6347,6 +6373,7 @@ button.list-group-item-danger.active:focus {
   padding-top: 35px;
   padding-right: 50px;
   padding-left: 50px;
+  padding-bottom: 35px;
 }
 .panel-heading {
   padding: 10px 15px;
