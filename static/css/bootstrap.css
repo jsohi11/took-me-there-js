@@ -688,11 +688,28 @@ html { height: 100%;}
 
 .board-wrapper {
   background: rgba(50, 50, 60, 1);
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  width: 75%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
 }
+
+.board-wrapper ul, ol {
+  padding-left: 20px;
+}
+
 
 .board {
     padding:  5px 10px;
     width: 50%;
+    color: #F7FE2E !important;
     font-size: 16px;
     display: inline-block;
     background: rgb(30, 30, 30);
@@ -739,6 +756,7 @@ html { height: 100%;}
     width: 100%;
     color: #F7FE2E !important;
     font-size: 20px;
+    text-align: center;
     display: inline-block;
     background: rgb(30, 30, 30);
     background: -webkit-gradient(linear, center top, center bottom, 
@@ -785,26 +803,13 @@ html { height: 100%;}
     border-top: 1px solid rgba(0,0,0,0.4);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     height: 0px;
-    width: 110%;
+    width: 103%;
     position: relative;
     left: -9px;
     top: 11px;
     content: " ";
     display: block;
 }
-
-/* Overlay Panel */
-
-.cover { 
-  position:fixed; 
-  top:0; 
-  left:0; 
-  background:rgba(0,0,0,0.6); 
-  z-index:5; 
-  width:100%; 
-  height:100%; 
-  display:none; 
-} 
 
 
 /*!

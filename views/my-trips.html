@@ -618,9 +618,6 @@ getTrips();
 
 </script>
 </head>
-<div class="cover">
-    TEST
-</div>
     <div id="wrapper" class="toggled">
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
@@ -646,17 +643,16 @@ getTrips();
         </nav>
         <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-open" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-          <span class="hamb-middle"></span>
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <button type="button" class="hamburger is-open" data-toggle="offcanvas">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
         <span class="hamb-bottom"></span>
-            </button>
-                <div class="row">
+    </button>
 
-
-<div class="row board-background" id="running-output">
+<div class="row">
+<div class="board-wrapper" id="running-output">
 <ul>
     <li class="board-single">
     YOUR UBER IS ARRIVING NOW
@@ -665,14 +661,15 @@ getTrips();
 <ul id="list-cities">
 </ul>
 </div>
+</div>
 
 
+
+<div class="row">
 <div id="map-canvas">
 </div>
-
-
-
 </div>
+
 
 <div class="row">
 <div class="panel panel-default panel-transparent">
@@ -680,12 +677,11 @@ getTrips();
 <ul id="list-countries">
 </ul>
 </div>
+</div>
+</div>
 
-
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    <!-- /#wrapper -->
+</div> <!-- /#page-content-wrapper -->
+</div><!-- /#wrapper -->
 
 </html>
 
