@@ -411,6 +411,10 @@ body {
       $.get("/api/me", handleResults)
     }
 
+  function getProfile (event){
+      $.get("/api/profile", handleProfileResults)
+    }
+
     function handleResults(results) {
       results.forEach(displayTrips);
       // printTrips();
@@ -425,6 +429,15 @@ body {
       findNotVisited();
       notVisitedCountriesUrls.forEach(displayNotVisited);
       showCountryStats();
+    }
+
+    function handleProfileResults(results) {
+        console.log(5+6);
+        profileLink();
+    }
+
+    function profileLink(user) {
+        console.log(user.uuid);
     }
 
 // CITY FUNCTIONS
@@ -661,6 +674,7 @@ $(document).ready(function () {
 // Call functions
 
 getTrips();
+
 
 </script>
 </head>

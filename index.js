@@ -98,6 +98,7 @@ app.get('/api/profile', function (req, res) {
   uber.user.profile({access_token: req.session.uberToken}, function (err, apiResponse) {
     res.send(apiResponse);
   });
+
 });
 
 // Handle more than 50 trips by accessing different pages and adding them to an array
